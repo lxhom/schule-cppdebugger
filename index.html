@@ -1,0 +1,48 @@
+<script src="main.js"></script>
+<script src="keywords.js"></script>
+<style>
+    code {
+        border-radius: 5px;
+        padding: 1px 3px;
+        background-color: #BBB;
+        line-height: 150%;
+    }
+
+    /*code:hover::after {
+        content: " (click to copy)";
+        font-style: italic;
+        opacity: 50%;
+    }*/
+    .hovermsg {
+        position: absolute;
+        background-color: #EEE;
+        border: 1px double black;
+        padding: 0px 5px;
+        border-radius: 5px;
+
+    }
+</style>
+Debug statement creator.<br>
+Just paste a C++ Statement or a list of vars in here and get debug statements.<br>
+Click on any code block to copy it. <br>
+Before submitting a bug report please check that you use correct C/C++ syntax or a seperated list. If you try to parse 4unction[%) and it just gives you nothing it's probably because the syntax is messed up.<br>
+Use [PREFIX1]$[PREFIX2]$[...]$[PREFIXn]$[CPP STATEMENT] to get multiple debug statements with prefixes.<br>
+$[STATEMENT] for no prefix. Default is a 'Before: ' and a 'After: ' prefix.<br>
+Example:<br>
+BFOR: $AFTR: $position = position * variable<br>
+evaluates to this: <div id="generated"><a href="javascript:showExample()">[Click here to generate]</a></div><br><br>
+
+<span>Input: </span><br>
+<textarea style="width:90vw;height:5em;" oninput="p()" id="i"></textarea><br><br>
+Options:<br>
+<input type="checkbox" id="fn" oninput="p()">Allow function invocations (<code>fn()</code>)</input>
+<input type="checkbox" id="nef" oninput="p()">Allow filled parantheses (<code>fn(arg)</code>)</input><br>
+<input type="checkbox" id="arr" oninput="p()">Allow arrows (<code>-></code>)</input>
+<input type="checkbox" id="spc" oninput="p()">Allow special chars (default <code>a-zA-Z0-9()[]</code>)</input><br>
+<input type="checkbox" id="dup" oninput="p()">Allow duplicates (e.g. <code>var,otherVar,var</code>)</input>
+<input type="checkbox" id="kwd" oninput="p()">Allow C/C++ keywords (e.g. <code>for</code>)</input><br>
+<br>Use <code>#include &lt;stdio.h&gt;</code> at the top of your
+program to use the statements.<br><br>
+<div id="o">
+    <code>Output goes here...</code>
+</div>
