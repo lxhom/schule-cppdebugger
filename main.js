@@ -1,6 +1,8 @@
 document.onclick = function() {
-    let parent = getSelection().focusNode?.parentElement;
-    if (parent?.tagName == "CODE") {
+    let parent;
+    if (typeof getSelection().focusNode != "undefined") { 
+    parent = getSelection().focusNode.parentElement;
+    if (typeof parent.tagName != "undefined" && parent.tagName == "CODE") {
         navigator.clipboard.writeText(parent.innerText)
         let child = document.createElement("div");
         document.body.appendChild(child);
@@ -9,7 +11,7 @@ document.onclick = function() {
         child.style.left = parent.offsetLeft - child.offsetWidth / 2 + parent.offsetWidth / 2;
         child.style.top = parent.offsetTop - child.offsetHeight;
         setTimeout(()=>child.remove(),2000)
-    }
+    }}
 };
 
 // obj->prop obj->method() same same emptyFn() fullFn(args)
